@@ -6,5 +6,5 @@
 int main()//uy
 {
 
-eturn 0;
+return 0;
 }
