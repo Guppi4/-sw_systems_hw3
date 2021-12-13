@@ -1,10 +1,10 @@
 CC = gcc
 FLAGS = -Wall -g
 
-all:connections s d    
+all:stringProg s d    
 
-connections: main.o  libds.a 
-		$(CC) $(FLAGS) -o connections main.o libds.a -lm
+stringProg: main.o  libds.a 
+		$(CC) $(FLAGS) -o stringProg  main.o libds.a -lm
 
 
   
@@ -34,4 +34,4 @@ my_mat.o: my_mat.c
 
 .PHONY:	clean all
 clean:
-	rm -f *.o  connections s d libds.a libdd.so
+	rm -f *.o  stringProg s d libds.a libdd.so
