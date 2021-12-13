@@ -14,7 +14,7 @@ char s[256] ;
 char s1[256];
 char buf[40][256];
 int countgimel[WORD];
-
+int countgimel1[WORD];
 int i=0;
      
 while (fgets(line, sizeof(line), stdin)) {
@@ -52,13 +52,27 @@ for (t = 0; t<j; t++){
     }
     
 };
-  
+int t2=0;
+for (t2 = 0; t2<j; t2++){
+    if(s1[t2]>64 && s1[t2]<91 ){
+   countgimel1[t2]=('Z'+'A')-s1[t2];
+    }
     
-for ( int y = 0; y<j; y++){
-printf("%d ",countgimel[y]);
-};
+    
+    if(s1[t2]>96 && s1[t2]<123 ){
+   countgimel1[t2]=('z'+'a')-s1[t2];;
+    }
+    
+};  
+    
+//for ( int y = 0; y<j; y++){
+//printf("%c ",(char)countgimel1[y]);
+//};
 
-//findSub(s+(j+1),t1,ld1);
+findSub(s+(j+1),t1,ld1);
+printf("\n");
+printf("Atbash Sequences: ");
+findgim1(s+(j+1),t1,countgimel1,j);
 printf("\n");
 printf("Anagram Sequences: ");
 findgim(s+(j+1),t1,countgimel,j);

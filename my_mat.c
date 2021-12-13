@@ -25,7 +25,64 @@ void print(char nums[], int i, int j)
     }
     
 }
-
+ void findgim1(char nums[], int n, int arr[],int j1)
+{
+     //printf("%d %d",n,j1);
+    int count=0;
+    for (int i = 0; i < n ; i++)//&& strcmp(&nums[i],"~")
+    {
+        
+ 
+        // consider all subarrays starting from `i` and ending at `j`
+        for (int j = i; j < n  ; j++)
+        {
+          int flag2=1; 
+        //printf("%c %d ",nums[j],sum_so_far);
+          int sum_so_far = 1;
+          int m = 0;
+          for (int h = i; h < j+1  ; h++)
+         {
+             
+            
+           //printf("%c ",arr[m]);
+            if(nums[h]>64 && nums[h]<91 && nums[h]!=(char)arr[m] ){
+              
+                sum_so_far =0;
+            
+            }
+           
+            if(nums[h]>96 && nums[h]<123 && nums[h]!=(char)arr[m]){
+              
+             //printf("%c ",nums[h]);
+              sum_so_far = 0;
+            
+            
+            }
+            
+            
+        
+            if(sum_so_far==0){
+                flag2=0;
+                break;
+            }
+           m++;
+       // printf("%d ",sum_so_far);
+        }  
+         
+         // if the sum so far is equal to the given sum
+            if (flag2 == 1 && isalpha(nums[i]) && isalpha(nums[j]) && (j-i)>=j1-1) {
+               if(count>0){
+               printf("~");
+               };
+                count++;
+                print(nums, i, j);
+             
+            }
+        }    
+    }
+}        
+           
+  
 void findgim(char nums[], int n, int arr[],int j1)
 {
      //printf("%d %d",n,j1);
