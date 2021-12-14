@@ -40,6 +40,8 @@ void print(char nums[], int i, int j)
         //printf("%c %d ",nums[j],sum_so_far);
           int sum_so_far = 1;
           int m = 0;
+          
+          
           for (int h = i; h < j+1  ; h++)
          {
              
@@ -68,9 +70,40 @@ void print(char nums[], int i, int j)
            m++;
        // printf("%d ",sum_so_far);
         }  
-         
+          int flag3=1; 
+        //printf("%c %d ",nums[j],sum_so_far);
+          int sum_so_far1 = 1;
+          int m1 = 0;
+          for (int h = j; h >=i  ; h--)
+         {
+             
+            
+           //printf("%c ",arr[m]);
+            if(nums[h]>64 && nums[h]<91 && nums[h]!=(char)arr[m1] ){
+              
+                sum_so_far1 =0;
+            
+            }
+           
+            if(nums[h]>96 && nums[h]<123 && nums[h]!=(char)arr[m1]){
+              
+             //printf("%c ",nums[h]);
+              sum_so_far1 = 0;
+            
+            
+            }
+            
+            
+        
+            if(sum_so_far1==0){
+                flag3=0;
+                break;
+            }
+           m1++;
+       // printf("%d ",sum_so_far);
+        }
          // if the sum so far is equal to the given sum
-            if (flag2 == 1 && isalpha(nums[i]) && isalpha(nums[j]) && (j-i)>=j1-1) {
+            if ((flag2 == 1 || flag3==1) && isalpha(nums[i]) && isalpha(nums[j]) && (j-i)>=j1-1) {
                if(count>0){
                printf("~");
                };
@@ -94,6 +127,13 @@ void findgim(char nums[], int n, int arr[],int j1)
         // consider all subarrays starting from `i` and ending at `j`
         for (int j = i; j < n  ; j++)
         {
+          
+          int arr1[j1];
+          
+          for (int j2 = 0; j2 < j1  ; j2++)
+        {
+          arr1[j2]=1;
+        } 
           int flag2=1; 
         //printf("%c %d ",nums[j],sum_so_far);
           for (int h = i; h < j+1  ; h++)
@@ -101,17 +141,18 @@ void findgim(char nums[], int n, int arr[],int j1)
             int sum_so_far = 0; 
             for (int m = 0; m < j1  ; m++)
            {
-            if(nums[h]>64 && nums[h]<91 && nums[h]==(char)arr[m] ){
+            if(nums[h]>64 && nums[h]<91 && nums[h]==(char)arr[m]  && arr1[m]==1){
                // printf("%d %d",sum_so_far,j1);
                 sum_so_far =1;
+                 arr1[m]=0;
              break;
             }
            
-            if(nums[h]>96 && nums[h]<123 && nums[h]==(char)arr[m]){
+            if(nums[h]>96 && nums[h]<123 && nums[h]==(char)arr[m] && arr1[m]==1){
               
             
               sum_so_far = 1;
-            
+              arr1[m]=0;
             break;
             }
             
