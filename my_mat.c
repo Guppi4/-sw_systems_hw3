@@ -29,7 +29,7 @@ void print(char nums[], int i, int j)
 {
      //printf("%d %d",n,j1);
     int count=0;
-    for (int i = 0; i < n ; i++)//&& strcmp(&nums[i],"~")
+    for (int i = 0; i < n ; i++)
     {
         
  
@@ -187,7 +187,7 @@ void findgim(char nums[], int n, int arr[],int j1)
  
            
 
-void findSub(char nums[], int n, int target)
+void findSub(char nums[], int n, int tar)
 {
     int count=0;
     for (int i = 0; i < n ; i++)//&& strcmp(&nums[i],"~")
@@ -212,7 +212,7 @@ void findSub(char nums[], int n, int target)
             
  
             // if the sum so far is equal to the given sum
-            if (sum_so_far == target && isalpha(nums[i]) && isalpha(nums[j]) ) {
+            if (sum_so_far == tar && isalpha(nums[i]) && isalpha(nums[j]) ) {
                if(count>0){
                printf("~");
                };
