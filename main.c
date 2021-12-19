@@ -76,6 +76,7 @@ findgim1(s+(j+1),t1,countgimel1,j);
 printf("\n");
 printf("Anagram Sequences: ");
 findgim(s+(j+1),t1,countgimel,j);
+printf("\n");
 //printf("%d",ld1);
 //char words[WORD];
 //getWord(line,words);
