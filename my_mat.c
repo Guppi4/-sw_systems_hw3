@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "my_mat.h"
 #include <ctype.h>
+
 int gem(char c[],int n){
    int co=0;
    for (int j = 0; j < n; j++)
@@ -41,10 +42,19 @@ void print(char nums[], int i, int j)
           int sum_so_far = 1;
           int m = 0;
           
-          
+           int arr1[j1-1];
+           int arr3[j1-1];
+          for (int j2 = 0; j2 <=j1  ; j2++)
+        {
+          arr1[j2]=1;
+          arr3[j2]=1;
+        } 
           for (int h = i; h < j+1  ; h++)
          {
              
+            if(!isspace(nums[h]) ){
+                
+            
             
            //printf("%c ",arr[m]);
             if(nums[h]>64 && nums[h]<91 && nums[h]!=(char)arr[m] ){
@@ -67,8 +77,10 @@ void print(char nums[], int i, int j)
                 flag2=0;
                 break;
             }
+           arr1[m]=0;
            m++;
-       // printf("%d ",sum_so_far);
+             }// printf("%d ",sum_so_far);
+        
         }  
           int flag3=1; 
         //printf("%c %d ",nums[j],sum_so_far);
@@ -77,6 +89,8 @@ void print(char nums[], int i, int j)
           for (int h = j; h >=i  ; h--)
          {
              
+            if(!isspace(nums[h]) ){
+                
             
            //printf("%c ",arr[m]);
             if(nums[h]>64 && nums[h]<91 && nums[h]!=(char)arr[m1] ){
@@ -99,11 +113,29 @@ void print(char nums[], int i, int j)
                 flag3=0;
                 break;
             }
+          arr3[m1]=0;
            m1++;
+           
+            }
+        
        // printf("%d ",sum_so_far);
         }
          // if the sum so far is equal to the given sum
-            if ((flag2 == 1 || flag3==1) && isalpha(nums[i]) && isalpha(nums[j]) && (j-i)>=j1-1) {
+          int flag5=0;   
+              int flag6=0;
+              for (int j2 = 0; j2 < j1 ; j2++)
+        {
+             if(arr1[j2] ==1){
+             flag5=1;
+             
+             }
+             if(arr3[j2] ==1){
+            flag6=1;
+             } 
+        
+        } 
+            
+            if ((flag2 == 1 || flag3==1) && isalpha(nums[i]) && isalpha(nums[j]) && (j-i)>=j1-1 && (flag5==0 || flag6==0)) {
                if(count>0){
                printf("~");
                };
@@ -156,10 +188,7 @@ void findgim(char nums[], int n, int arr[],int j1)
             break;
             }
             
-            if(nums[h]==" " ){
-                
-            break;
-            }
+            
         }
             if(sum_so_far==0){
                 flag2=0;
